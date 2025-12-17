@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  aircall-ivr:
+    build: .
+    container_name: aircall-ivr
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      - PORT=${PORT:-3000}
+      - HUBSPOT_API_KEY=${HUBSPOT_API_KEY}
+      - AIRCALL_WEBHOOK_SECRET=${AIRCALL_WEBHOOK_SECRET}
+    env_file:
+      - .env
+    restart: unless-stopped
+    networks:
+      - aircall-network
+
+networks:
+  aircall-network:
+    driver: bridge
+
