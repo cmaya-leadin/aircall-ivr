@@ -83,6 +83,20 @@ docker-compose logs -f
 docker-compose down
 ```
 
+### Paso 2 (Alternativa): Desplegar con Portainer
+
+Si estás usando Portainer para gestionar tus contenedores:
+
+1. **Crea un nuevo Stack** en Portainer
+2. **Copia el contenido** de `docker-compose.yml`
+3. **Configura las variables de entorno** en la sección "Environment variables" de Portainer:
+   - `PORT=3000` (opcional, por defecto es 3000)
+   - `HUBSPOT_API_KEY=tu_hubspot_api_key_aqui`
+   - `AIRCALL_WEBHOOK_SECRET=tu_aircall_webhook_secret_aqui`
+4. **Despliega el stack**
+
+**Nota**: El `docker-compose.yml` ya no requiere un archivo `.env` físico, las variables se configuran directamente en Portainer.
+
 ### Paso 3: Construir y Ejecutar con Docker (sin Compose)
 
 ```bash

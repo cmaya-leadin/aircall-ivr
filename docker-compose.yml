@@ -10,8 +10,6 @@ services:
       - PORT=${PORT:-3000}
       - HUBSPOT_API_KEY=${HUBSPOT_API_KEY}
       - AIRCALL_WEBHOOK_SECRET=${AIRCALL_WEBHOOK_SECRET}
-    env_file:
-      - .env
     restart: unless-stopped
     networks:
       - aircall-network
